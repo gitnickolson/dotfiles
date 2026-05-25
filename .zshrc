@@ -11,12 +11,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Dumpfile name to prevent multiple dumpfiles being create
-ZSH_COMPDUMP="$HOME/.zcompdump"
-
 # Alias
 alias gpfwl="git push --force-with-lease"
 alias ff="fastfetch"
+
+alias ber='bundle exec rake'
+alias dbsetup='ENV=db bundle exec rake db:create db:migrate'
+alias dbreset='ENV=db bundle exec rake db:drop db:create db:migrate'
 
 # Path additions
 export PATH="$HOME/.atuin/bin:$PATH"
@@ -33,3 +34,4 @@ fi
 
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
+
