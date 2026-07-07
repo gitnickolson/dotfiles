@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME=""
 
+# Load Oh my Zsh plugins
 plugins=(
   git
   docker
@@ -9,9 +10,11 @@ plugins=(
   fzf
 )
 
+# Load general Zsh plugins
 source $ZSH/oh-my-zsh.sh
+source ~/code/gitnickolson/catppuccinifier/plugin.zsh
 
-# Alias
+# Aliases
 alias gpfwl="git push --force-with-lease"
 alias ff="fastfetch"
 
@@ -35,3 +38,12 @@ fi
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
 
+fastfetch
+
+# pnpm
+export PNPM_HOME="/home/nickolson/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
